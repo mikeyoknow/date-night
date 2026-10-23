@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ff665f" />
+  <meta name="description" content="Date Night — Saturday's plan." />
+  <title>Date Night</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="intro-running">
+  <div class="opening" id="opening" role="dialog" aria-modal="true" aria-labelledby="openingTitle">
+    <div class="opening-content">
+      <p>Drumroll...</p>
+      <h2 id="openingTitle">You're invited<br /><em>on a date</em></h2>
+      <div class="drumroll" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <button class="skip-intro" id="skipIntro" type="button">Open now</button>
+    <div class="curtain curtain-left" aria-hidden="true"></div>
+    <div class="curtain curtain-right" aria-hidden="true"></div>
+  </div>
+
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="love-float-layer" id="loveFloatLayer" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Date Night home">
+      <span></span> D.N.
+    </a>
+    <a href="#date">The date ↓</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="photo-loop" aria-label="Looping photo slideshow">
+        <div class="photo-shadow" aria-hidden="true"></div>
+        <div class="photo-frame">
+          <img class="loop-photo active" src="assets/frame-01.jpg" alt="Heart pose" />
+          <img class="loop-photo" src="assets/frame-02.jpg" alt="Celebrating" />
+          <img class="loop-photo" src="assets/frame-03.jpg" alt="Smiling" />
+          <img class="loop-photo" src="assets/frame-04.jpg" alt="Holding up a phone" />
+          <img class="loop-photo" src="assets/frame-05.jpg" alt="Waiting" />
+          <img class="loop-photo" src="assets/frame-06.jpg" alt="Surprised" />
+        </div>
+        <div class="photo-dots" aria-label="Slideshow controls">
+          <button class="active" data-photo="0" aria-label="Show photo 1"></button>
+          <button data-photo="1" aria-label="Show photo 2"></button>
+          <button data-photo="2" aria-label="Show photo 3"></button>
+          <button data-photo="3" aria-label="Show photo 4"></button>
+          <button data-photo="4" aria-label="Show photo 5"></button>
+          <button data-photo="5" aria-label="Show photo 6"></button>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="date-stamp">Saturday, Oct 24 · Toronto</p>
+        <h1><em>Date Night</em></h1>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#date">Reveal the date</a>
+          <button class="button" id="summaryButton" type="button">Quick summary</button>
+        </div>
+
+        <div class="countdown-wrap" aria-live="polite">
+          <span>Countdown to pickup</span>
+          <div class="countdown" id="countdown">
+            <div><strong id="days">--</strong><small>days</small></div>
+            <div><strong id="hours">--</strong><small>hrs</small></div>
+            <div><strong id="minutes">--</strong><small>min</small></div>
+            <div><strong id="seconds">--</strong><small>sec</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-strip" aria-label="Date summary">
+      <span>6:30 pickup</span><b>→</b><span>Study</span><b>→</b><span>Food</span><b>→</b><span>9:15 You Can See Everything</span>
+    </section>
+
+    <section class="date-section" id="date">
+      <h2>The date</h2>
+
+      <ol class="timeline">
+        <li>
+          <time>6:00</time>
+          <div class="timeline-card">
+            <h3>Shift finished</h3>
+            <p>Clock out.</p>
+          </div>
+        </li>
+
+        <li>
+          <time>6:30</time>
+          <div class="timeline-card">
+            <h3>Pickup time</h3>
+          </div>
+        </li>
+
+        <li>
+          <time>After pickup</time>
+          <div class="timeline-card study-card">
+            <h3>Study</h3>
+            <p>Pick a spot:</p>
+            <div class="choice-row" role="group" aria-label="Study location options">
+              <button class="choice active" type="button" data-study="starbucks" aria-pressed="true">Starbucks</button>
+              <button class="choice" type="button" data-study="pablos" aria-pressed="false">Pablo's Coffee House</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="branch-step">
+          <time>Food</time>
+          <div class="timeline-card">
+            <h3>Three ways it could go</h3>
+            <div class="food-branches" role="group" aria-label="Food timing options">
+              <button class="food-choice before" type="button" data-food="before" aria-pressed="false">
+                <span>Before</span>
+                <small>More food options.<br />Less study time.</small>
+                <strong class="restaurant-picked" id="beforeRestaurant" hidden></strong>
+              </button>
+              <button class="food-choice during" type="button" data-food="during" aria-pressed="false">
+                <span>During</span>
+                <small>Order in VIP.<br />Easiest timing.</small>
+              </button>
+              <button class="food-choice after" type="button" data-food="after" aria-pressed="false">
+                <span>After</span>
+                <small>More study time.<br />Fewer late options.</small>
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="movie-step">
+          <time>9:15</time>
+          <div class="timeline-card">
+            <h3>You Can See Everything</h3>
+            <p>Movie starts.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <span>Date Night</span>
+    <span>Saturday · 6:30 PM</span>
+  </footer>
+
+  <div class="modal" id="summaryModal" role="dialog" aria-modal="true" aria-labelledby="summaryTitle" hidden>
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <h2 id="summaryTitle">6:30 pickup.<br />Study.<br />Food.<br />9:15 movie.</h2>
+      <button class="button primary" id="modalOkay" type="button">Got it</button>
+    </div>
+  </div>
+
+  <div class="modal" id="restaurantModal" role="dialog" aria-modal="true" aria-labelledby="restaurantTitle" hidden>
+    <div class="modal-card restaurant-modal-card">
+      <button class="modal-close" id="restaurantClose" type="button" aria-label="Close">×</button>
+      <p class="modal-kicker">Before the movie</p>
+      <h2 id="restaurantTitle">Pick one</h2>
+      <div class="restaurant-grid" role="group" aria-label="Restaurant options">
+        <article class="restaurant-option">
+          <div>
+            <span class="restaurant-tag">Requested</span>
+            <h3>JOEY Don Mills</h3>
+            <p>Big menu, date-night energy.</p>
+          </div>
+          <a href="https://joeyrestaurants.com/menu/joey-don-mills" target="_blank" rel="noreferrer">Menu ↗</a>
+          <button class="restaurant-choice" type="button" data-restaurant="joey" data-label="JOEY Don Mills" aria-pressed="false">Select</button>
+        </article>
+
+        <article class="restaurant-option">
+          <div>
+            <span class="restaurant-tag">Italian</span>
+            <h3>Eataly Ristorante</h3>
+            <p>Fresh pasta and pizza.</p>
+          </div>
+          <a href="https://www.eataly.ca/stores/eataly-don-mills/restaurants/" target="_blank" rel="noreferrer">Menu ↗</a>
+          <button class="restaurant-choice" type="button" data-restaurant="eataly" data-label="Eataly Ristorante" aria-pressed="false">Select</button>
+        </article>
+
+        <article class="restaurant-option">
+          <div>
+            <span class="restaurant-tag">Meaty</span>
+            <h3>The Good Son</h3>
+            <p>Steak and burgers.</p>
+          </div>
+          <a href="https://thegoodsontoronto.com/menu/" target="_blank" rel="noreferrer">Menu ↗</a>
+          <button class="restaurant-choice" type="button" data-restaurant="good-son" data-label="The Good Son" aria-pressed="false">Select</button>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="afterModal" role="dialog" aria-modal="true" aria-labelledby="afterTitle" hidden>
+    <div class="modal-card after-modal-card">
+      <button class="modal-close" id="afterClose" type="button" aria-label="Close">×</button>
+      <h2 id="afterTitle">Highly recommend before or during 😊</h2>
+      <button class="button primary" id="afterOkay" type="button">Okay</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
